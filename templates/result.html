@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Header section with title -->
+    <header class="header-box">
+        <h1>Prediction Result</h1> <!-- Title of the page -->
+    </header>
+
+    <main class="result-main">
+        <!-- Section to display the prediction result -->
+        <section class="result-display">
+            <h2>Predicted Digit</h2> <!-- Sub-heading for the predicted digit -->
+            <!-- Display the predicted digit -->
+            <div class="prediction">{{ prediction }}</div>
+            
+            {% if image_path %}
+            <!-- If an image was uploaded, display it -->
+            <img src="{{ image_path }}" alt="Uploaded Image" class="result-img">
+            {% else %}
+            <!-- If no image was uploaded, display a message -->
+            <p>No image available</p>
+            {% endif %}
+        </section>
+
+        <!-- Button to go back to the main page -->
+        <a href="/" class="back-btn">Go Back</a>
+    </main>
+</body>
+</html>
